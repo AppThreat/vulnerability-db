@@ -86,6 +86,13 @@ class NvdSource(VulnerabilitySource):
         docs = dbLib.store(db, data)
         return docs
 
+    def bulk_search():
+        """
+        Bulk search the resource instead of downloading the information
+        :return: Vulnerability result
+        """
+        raise NotImplementedError
+
     @staticmethod
     def convert_vuln(vuln):
         id = vuln["cve"]["CVE_data_meta"]["ID"]
