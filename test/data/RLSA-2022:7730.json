@@ -1,0 +1,88 @@
+{
+  "id": "RLSA-2022:7730",
+  "title": "Moderate: libldb security, bug fix, and enhancement update",
+  "issued": {
+    "date": "2022-11-13 07:54:11"
+  },
+  "updated": {
+    "date": "2022-11-08 00:00:00"
+  },
+  "severity": "SEVERITY_MODERATE",
+  "description": "The libldb packages provide an extensible library that implements an LDAP-like API to access remote LDAP servers, or use local TDB databases.\nThe following packages have been upgraded to a later upstream version: libldb (2.5.2). (BZ#2077484)\nFor more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.\nAdditional Changes:\nFor detailed information on changes in this release, see the Rocky Linux 8.7 Release Notes linked from the References section.",
+  "packages": [
+    {
+      "name": "ldb-tools",
+      "epoch": "0",
+      "version": "2.5.2",
+      "release": "2.el8",
+      "arch": "x86_64",
+      "src": "libldb-2.5.2-2.el8.src.rpm",
+      "filename": "ldb-tools-2.5.2-2.el8.x86_64.rpm"
+    },
+    {
+      "name": "libldb",
+      "epoch": "0",
+      "version": "2.5.2",
+      "release": "2.el8",
+      "arch": "i686",
+      "src": "libldb-2.5.2-2.el8.src.rpm",
+      "filename": "libldb-2.5.2-2.el8.i686.rpm"
+    },
+    {
+      "name": "libldb",
+      "epoch": "0",
+      "version": "2.5.2",
+      "release": "2.el8",
+      "arch": "x86_64",
+      "src": "libldb-2.5.2-2.el8.src.rpm",
+      "filename": "libldb-2.5.2-2.el8.x86_64.rpm"
+    },
+    {
+      "name": "libldb-devel",
+      "epoch": "0",
+      "version": "2.5.2",
+      "release": "2.el8",
+      "arch": "i686",
+      "src": "libldb-2.5.2-2.el8.src.rpm",
+      "filename": "libldb-devel-2.5.2-2.el8.i686.rpm"
+    },
+    {
+      "name": "libldb-devel",
+      "epoch": "0",
+      "version": "2.5.2",
+      "release": "2.el8",
+      "arch": "x86_64",
+      "src": "libldb-2.5.2-2.el8.src.rpm",
+      "filename": "libldb-devel-2.5.2-2.el8.x86_64.rpm"
+    },
+    {
+      "name": "python3-ldb",
+      "epoch": "0",
+      "version": "2.5.2",
+      "release": "2.el8",
+      "arch": "i686",
+      "src": "libldb-2.5.2-2.el8.src.rpm",
+      "filename": "python3-ldb-2.5.2-2.el8.i686.rpm"
+    },
+    {
+      "name": "python3-ldb",
+      "epoch": "0",
+      "version": "2.5.2",
+      "release": "2.el8",
+      "arch": "x86_64",
+      "src": "libldb-2.5.2-2.el8.src.rpm",
+      "filename": "python3-ldb-2.5.2-2.el8.x86_64.rpm"
+    }
+  ],
+  "references": [
+    {
+      "href": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2022-32746.json",
+      "id": "CVE-2022-32746",
+      "title": "Update information for CVE-2022-32746 is retrieved from Red Hat",
+      "type": "cve"
+    }
+  ],
+  "cveids": [
+    "CVE-2022-32746"
+  ]
+}
