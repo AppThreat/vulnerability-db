@@ -1,0 +1,15 @@
+{
+  "name": "protobuf-c",
+  "secfixes": {
+    "1.4.1-r0": [
+      "CVE-2022-33070",
+      "CVE-2021-3121"
+    ]
+  },
+  "apkurl": "{{urlprefix}}/{{reponame}}/{{arch}}/{{pkg.name}}-{{pkg.ver}}.apk",
+  "archs": [
+    "x86_64"
+  ],
+  "urlprefix": "https://packages.wolfi.dev",
+  "reponame": "os"
+}
