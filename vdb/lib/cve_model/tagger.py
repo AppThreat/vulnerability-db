@@ -1,0 +1,165 @@
+from vdb.lib.cve_model import Reference
+
+REFERENCE_TAGS_MAP = {
+    "exploit": [
+        "exploit-db.com/",
+        "exploit-database",
+        "seebug.org",
+        "seclists.org",
+        "nu11secur1ty",
+        "packetstormsecurity.com",
+        "coresecurity.com",
+        "project-zero",
+        "0dd.zone",
+        "snyk.io/research/",
+        "chromium.googlesource.com/infra",
+        "synacktiv.com",
+        "bishopfox.com",
+        "zerodayinitiative.com",
+        "www.samba.org/samba/security/",
+        "www.synology.com/support/security/",
+        "us-cert.gov/advisories"
+    ],
+    "government-resource": [
+        ".gov",
+        "cisa",
+        "kevc",
+    ],
+    "issue-tracking": [
+        "bugzilla",
+        "bugs.",
+        "chat.",
+        "/issues",
+        "/merge_request",
+        "oss-fuzz",
+        "trac.",
+        "security-tracker.",
+        "/bugs",
+    ],
+    "mailing-list": [
+        "openwall.com",
+        "oss-security",
+        "www.mail-archive.com",
+        "lists.",
+        "mail.",
+        "/discussion/",
+        "/archives/",
+        "groups.",
+        "/community",
+        "/forum",
+        "/discuss",
+        "-announce",
+    ],
+    "mitigation": [],
+    "not-applicable": [],
+    "patch": [
+        "/commit",
+        "/pull",
+        "/code/ci",
+        ".patch",
+    ],
+    "media-coverage": [
+        "blog",
+        "support",
+        "media",
+        "tech-updates",
+        "/news",
+        "/article",
+        ".html",
+        "/entry",
+        ".txt",
+        "/comments/",
+        "youtube.com",
+        "medium.com",
+        "twitter.com",
+    ],
+    "release-notes": [
+        "/release",
+        ".md",
+        "/changeset",
+        "releases/"
+    ],
+    "technical-description": [
+        "poc",
+        "hackerone",
+        "bugcrowd",
+        "bounty",
+        "huntr.dev",
+        "bounties",
+        "attackerkb",
+        "support.",
+        ".pdf",
+        "docs.google.com",
+    ],
+    "third-party-advisory": [
+        "research",
+        "xss",
+        "csrf",
+        "ssrf",
+        "sqli",
+        "disclosure",
+        "rapid7",
+        "reference",
+        ".me/"
+    ],
+    "vendor-advisory": [
+        "oracle.com",
+        "curl.haxx.se",
+        "nodejs.org",
+        "/security.",
+        "/securityadvisories.",
+        "sec-consult.com",
+        "jenkins.io/security",
+        "support.f5.com",
+        "suricata-ids.org/",
+        "foxitsoftware.com/support/",
+        "success.trendmicro.com/",
+        "docs.jamf.com/",
+        "www.postgresql.org/about",
+        "access.redhat.com",
+        "support.apple.com",
+        "rubyonrails-security",
+        "usn.ubuntu.com",
+        "security.gentoo.org",
+        "debian.org",
+        "apache.org",
+        "gitlab.alpinelinux.org",
+        "bugs.busybox.net",
+        "/security-advisor",
+        "/alert",
+        "wordpress",
+        "wpvulndb",
+        "/bug/view/",
+    ],
+    "vdb-entry": [
+        "/advisories",
+        "/vulnerabilit",
+        "cve-",
+        "ghsa-",
+        "dsa-",
+        "mal-",
+        "/vuln/",
+        "portal.msrc.microsoft.com",
+        "/id/",
+        "/bid/",
+        "kb.",
+        "jvn.jp/",
+        "vulndb",
+        "vulncheck",
+        "glsa",
+        "rhsa-",
+    ]
+}
+
+
+def get_reference_tags(ref_urls: list[str | Reference]) -> list[dict[str, str]]:
+    """Tag the urls under references"""
+    tags = []
+    for aref in ref_urls:
+        theurl = aref.url if isinstance(aref, Reference) else aref
+        for reference_tag, tag_patterns in REFERENCE_TAGS_MAP.items():
+            for keyword_str in tag_patterns:
+                if keyword_str in theurl:
+                    tags.append({"url": theurl, "tag": reference_tag})
+                    break
+    return tags
